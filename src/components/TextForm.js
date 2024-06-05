@@ -7,29 +7,33 @@ export default function TextForm(props) {
     const updateText = (event) =>{
         setText(event.target.value)
     }
-
+    
     const changeTextUpper = () =>{
         let newText = text.toUpperCase();
         setText(newText)
+        props.showAlert("Text changed to upper case","Success")
     }
     const changeTextLower = () =>{
         let newText = text.toLowerCase();
         setText(newText)
+        props.showAlert("Text changed to lower case","Success")
     }
     const clearText = () =>{
         setText("")   
+        props.showAlert("Text has been cleared","Success")
     }
-
+    
     const removeExtraSpaces = () =>{
         setText(text.replace(/\s+/g,' ').trim())   
+        props.showAlert("Extra spaces has been removed","Success")
     }
-
+    
     const copyText = () =>{
         var copyText = document.getElementById("myBox");
-
         copyText.select();
         copyText.setSelectionRange(0, 99999); 
         navigator.clipboard.writeText(copyText.value);
+        props.showAlert("Text has been copied","Success")
     }
 
 
