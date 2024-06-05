@@ -1,6 +1,4 @@
-// import { type } from '@testing-library/user-event/dist/type';
 import './App.css';
-// import About from './components/About';
 import Navbar from './components/Navbar'
 import TextForm from './components/TextForm'
 import Alert from './components/Alert';
@@ -8,43 +6,78 @@ import Alert from './components/Alert';
 import React, { useState } from 'react'
 
 function App() {
-  const [style, setStyle] = useState({
-    color: "black",
-    backgroundColor: "white"
-  })
   const [bodyStyle, setBodyStyle] = useState({
     backgroundColor: "white",
   })
-  const [mode, setMode] = useState('light')
+  const [mode, setMode] = useState({
+    color:"black",
+    bgColor:"white", 
+    borColor:"black",
+    butBgColor:"#b7b7b8",
+    butColor:"white"
+  })
   const [alert, setAlert] = useState(null)
 
-  const [butstyle, setbutstyle] = useState("black")
-
   const turnDark = () => {
-    setMode('dark')
-    setbutstyle('white')
+    setMode({
+      color:"white",
+      bgColor:"rgb(40 39 39)", 
+      borColor:"white",
+      butBgColor:"rgb(132 131 131)",
+      butColor:"white"
+    })
     setBodyStyle({
-      backgroundColor: "#343a40",
+      backgroundColor: "rgb(40 39 39)",
     })
-    setStyle({
-      color: "white",
-      backgroundColor: "#343a40"
-    })
-    document.body.style.backgroundColor = "#343a40"
+    
+    document.body.style.backgroundColor = "rgb(40 39 39)"
     showAlert('Dark mode Enabled', 'Success')
   }
+
   const turnLight = () => {
-    setMode('light')
+    setMode({
+      color:"black",
+      bgColor:"white", 
+      borColor:"black",
+      butBgColor:"#b7b7b8",
+      butColor:"white"
+    })
     setBodyStyle({
       backgroundColor: "white",
     })
-    setbutstyle('black')
-    setStyle({
-      color: "black",
-      backgroundColor: "white"
-    })
+    
+    
     document.body.style.backgroundColor = "white"
     showAlert('Light mode Enabled', 'Success')
+  }
+
+  const turnGreen = () => {
+    setMode({
+      color:"black",
+      bgColor:"#b0f7a8", 
+      borColor:"blue",
+      butBgColor:"rgb(122 255 120)",
+      butColor:"black"
+    })
+    setBodyStyle({
+      backgroundColor: "#b0f7a8",
+    })
+    document.body.style.backgroundColor = "#b0f7a8"
+    showAlert('Green mode Enabled', 'Success')
+  }
+  const turnBlue = () => {
+    setMode({
+      color:"black",
+      bgColor:"skyblue", 
+      borColor:"blue",
+      butBgColor:"rgb(126 178 255)",
+      butColor:"black"
+    })
+    setBodyStyle({
+      backgroundColor: "skyblue",
+    })
+    document.body.style.backgroundColor = "skyblue"
+    showAlert('Green mode Enabled', 'Success')
   }
 
   const showAlert = (message, type) =>{
@@ -59,9 +92,9 @@ function App() {
 
   return (
     <div className='child' style={bodyStyle}>
-      <Navbar title="TextUtils" navMode={mode} turnDark={turnDark} turnLight={turnLight} butStyle={butstyle}/>
+      <Navbar title="TextUtils" navMode={mode} turnDark={turnDark} turnLight={turnLight} turnGreen={turnGreen} turnBlue={turnBlue}/>
       <Alert alert={alert}/>
-      <TextForm heading="Enter the text to Analyze" areaheading="Text Area" mode={mode} TextStyle={style} showAlert={showAlert}/>
+      <TextForm heading="Enter the text to Analyze" areaheading="Text Area" navMode={mode}  showAlert={showAlert}/>
       {/* <About/> */}
     </div>
   );
