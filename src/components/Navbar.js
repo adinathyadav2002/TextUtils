@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 // have to import this to use propTypes
 // import PropTypes from 'prop-types'
 
@@ -6,11 +7,11 @@ import React from 'react'
 export default function Navbar(props) {
   return (
     <>
-      <nav className="navbar navbar-expand-lg " style={{backgroundColor:props.navMode.bgColor,borderBottom:"1px solid black" ,borderColor:props.navMode.borColor}} >
+      <nav className="navbar navbar-expand-lg " style={{ backgroundColor: props.navMode.bgColor, borderBottom: "1px solid black", borderColor: props.navMode.borColor }} >
         <div className="container-fluid">
-          <a className="navbar-brand" href="/" style={{color:props.navMode.color}}>
+          <Link className="navbar-brand" to="/" style={{ color: props.navMode.color }}>
             {props.title}
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -25,70 +26,70 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/"  style={{color:props.navMode.color}}>
+                <Link to="/" className="nav-link active" aria-current="page" style={{ color: props.navMode.color }}>
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/"  style={{color:props.navMode.color}}>
+              <Link to="/About" className="nav-link active" aria-current="page" style={{ color: props.navMode.color }}>
                   About
-                </a>
+                </Link>
               </li>
-              <div className="form-check form-switch mx-1" style={{ display:"flex", alignItems:"center"} }>
+              <div className="form-check form-switch mx-1" style={{ display: "flex", alignItems: "center" }}>
                 <input
                   className="form-check-input"
                   type="checkbox"
                   role="switch"
                   id="dark-button"
                   defaultChecked=""
-                  style={{cursor:'pointer'}}
-                  onClick={()=>{
-                    if(props.navMode.bgColor==='white'){
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => {
+                    if (props.navMode.bgColor === 'white') {
                       props.turnDark()
-                    }else {
+                    } else {
                       props.turnLight()
                     }
                   }}
                 />
-                <label className="form-check-label mx-1" htmlFor="dark-button" style={{cursor:'pointer', color:props.butStyle, color:props.navMode.color}}>Dark Mode
+                <label className="form-check-label mx-1" htmlFor="dark-button" style={{ cursor: 'pointer', color: props.navMode.color }}>Dark Mode
                 </label>
               </div>
-              <div className="form-check form-switch mx-1" style={{ display:"flex", alignItems:"center"} }>
+              <div className="form-check form-switch mx-1" style={{ display: "flex", alignItems: "center" }}>
                 <input
                   className="form-check-input"
                   type="checkbox"
                   role="switch"
                   id="green-button"
                   defaultChecked=""
-                  style={{cursor:'pointer'}}
-                  onClick={()=>{
-                    if(props.navMode.bgColor==='white'){
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => {
+                    if (props.navMode.bgColor === 'white') {
                       props.turnGreen()
-                    }else {
+                    } else {
                       props.turnLight()
                     }
                   }}
                 />
-                <label className="form-check-label mx-1" htmlFor="green-button" style={{cursor:'pointer', color:props.butStyle,color:props.navMode.color}}>Green Mode
+                <label className="form-check-label mx-1" htmlFor="green-button" style={{ cursor: 'pointer', color: props.navMode.color }}>Green Mode
                 </label>
               </div>
-              <div className="form-check form-switch mx-1" style={{ display:"flex", alignItems:"center"} }>
+              <div className="form-check form-switch mx-1" style={{ display: "flex", alignItems: "center" }}>
                 <input
                   className="form-check-input"
                   type="checkbox"
                   role="switch"
                   id="blue-button"
                   defaultChecked=""
-                  style={{cursor:'pointer'}}
-                  onClick={()=>{
-                    if(props.navMode.bgColor==='white'){
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => {
+                    if (props.navMode.bgColor === 'white') {
                       props.turnBlue()
-                    }else {
+                    } else {
                       props.turnLight()
                     }
                   }}
                 />
-                <label className="form-check-label mx-1" htmlFor="blue-button" style={{cursor:'pointer', color:props.navMode.color}}>Blue Mode
+                <label className="form-check-label mx-1" htmlFor="blue-button" style={{ cursor: 'pointer', color: props.navMode.color }}>Blue Mode
                 </label>
               </div>
             </ul>

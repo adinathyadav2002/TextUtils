@@ -58,7 +58,7 @@ export default function TextForm(props) {
             <div className="container my-3" style={{backgroundColor:props.navMode.bgColor, color:props.navMode.color}}> 
                 <h2>Your text summary</h2>
                 <p>Total words {text.split(" ").filter(isWord).length} and character {text.length}</p>
-                <p>Time to read the document is : {(0.008*text.split(" ").length).toFixed(2)}</p>
+                <p>Time to read the document is : {(0.008*text.split(" ").filter(isWord).length).toFixed(2)}</p>
                 <h3>Preview</h3>
                 <p>{text}</p>
             </div>
